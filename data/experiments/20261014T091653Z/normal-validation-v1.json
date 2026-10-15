@@ -1,0 +1,1717 @@
+{
+  "source_run_id": "a6ca137e-3b3c-4939-ae9f-953196129142",
+  "scenario_id": "normal",
+  "protocol_version": "paired-20-v1",
+  "seeds": [
+    70001,
+    70002,
+    70003,
+    70004,
+    70005,
+    70006,
+    70007,
+    70008,
+    70009,
+    70010,
+    70011,
+    70012,
+    70013,
+    70014,
+    70015,
+    70016,
+    70017,
+    70018,
+    70019,
+    70020
+  ],
+  "excluded_seeds": [
+    110,
+    111,
+    112,
+    113,
+    114,
+    115,
+    116,
+    117,
+    118,
+    119,
+    120,
+    121,
+    809,
+    4101
+  ],
+  "days": 20,
+  "plan_sha256": "de99328f5a27f45a0ccdc56a9867db145010263140985ac782fe5fc10d310012",
+  "input_snapshot": {
+    "network": {
+      "organization_id": "meridian-demo",
+      "name": "Meridian University",
+      "synthetic": true,
+      "stops": [
+        {
+          "id": "S00",
+          "name": "Transit Commons",
+          "latitude": 12.97616,
+          "longitude": 77.56552,
+          "x": 460.0,
+          "y": 320.0,
+          "accessible": true,
+          "kind": "interchange"
+        },
+        {
+          "id": "S01",
+          "name": "North Residences",
+          "latitude": 12.97856,
+          "longitude": 77.56216,
+          "x": 180.0,
+          "y": 120.0,
+          "accessible": true,
+          "kind": "residence"
+        },
+        {
+          "id": "S02",
+          "name": "West Residences",
+          "latitude": 12.9764,
+          "longitude": 77.56168,
+          "x": 140.0,
+          "y": 300.0,
+          "accessible": true,
+          "kind": "residence"
+        },
+        {
+          "id": "S03",
+          "name": "Academic Quarter",
+          "latitude": 12.97448,
+          "longitude": 77.563,
+          "x": 250.0,
+          "y": 460.0,
+          "accessible": true,
+          "kind": "academic"
+        },
+        {
+          "id": "S04",
+          "name": "Central Library",
+          "latitude": 12.97424,
+          "longitude": 77.56492,
+          "x": 410.0,
+          "y": 480.0,
+          "accessible": true,
+          "kind": "academic"
+        },
+        {
+          "id": "S05",
+          "name": "Administration",
+          "latitude": 12.97784,
+          "longitude": 77.56696000000001,
+          "x": 580.0,
+          "y": 180.0,
+          "accessible": true,
+          "kind": "campus"
+        },
+        {
+          "id": "S06",
+          "name": "Research Park",
+          "latitude": 12.97856,
+          "longitude": 77.56876,
+          "x": 730.0,
+          "y": 120.0,
+          "accessible": true,
+          "kind": "academic"
+        },
+        {
+          "id": "S07",
+          "name": "Innovation Center",
+          "latitude": 12.97652,
+          "longitude": 77.56972,
+          "x": 810.0,
+          "y": 290.0,
+          "accessible": true,
+          "kind": "academic"
+        },
+        {
+          "id": "S08",
+          "name": "Medical Center",
+          "latitude": 12.975200000000001,
+          "longitude": 77.5678,
+          "x": 650.0,
+          "y": 400.0,
+          "accessible": true,
+          "kind": "campus"
+        },
+        {
+          "id": "S09",
+          "name": "South Parking",
+          "latitude": 12.97232,
+          "longitude": 77.56588,
+          "x": 490.0,
+          "y": 640.0,
+          "accessible": true,
+          "kind": "parking"
+        },
+        {
+          "id": "S10",
+          "name": "Sports Complex",
+          "latitude": 12.97256,
+          "longitude": 77.56852,
+          "x": 710.0,
+          "y": 620.0,
+          "accessible": true,
+          "kind": "campus"
+        },
+        {
+          "id": "S11",
+          "name": "Auditorium",
+          "latitude": 12.974,
+          "longitude": 77.57008,
+          "x": 840.0,
+          "y": 500.0,
+          "accessible": true,
+          "kind": "event"
+        },
+        {
+          "id": "S12",
+          "name": "Food Court",
+          "latitude": 12.973880000000001,
+          "longitude": 77.56708,
+          "x": 590.0,
+          "y": 510.0,
+          "accessible": true,
+          "kind": "campus"
+        }
+      ],
+      "routes": [
+        {
+          "id": "R1",
+          "name": "Residence Loop",
+          "color": "#5b66e8",
+          "stops": [
+            "S00",
+            "S01",
+            "S02",
+            "S03",
+            "S04",
+            "S00"
+          ],
+          "minimum_trips": 7,
+          "operating_window": [
+            0.0,
+            140.0
+          ],
+          "direction": "clockwise"
+        },
+        {
+          "id": "R2",
+          "name": "Research Express",
+          "color": "#15a58b",
+          "stops": [
+            "S00",
+            "S05",
+            "S06",
+            "S07",
+            "S08",
+            "S00"
+          ],
+          "minimum_trips": 7,
+          "operating_window": [
+            0.0,
+            140.0
+          ],
+          "direction": "clockwise"
+        },
+        {
+          "id": "R3",
+          "name": "Campus Connector",
+          "color": "#e6a347",
+          "stops": [
+            "S00",
+            "S09",
+            "S10",
+            "S11",
+            "S12",
+            "S00"
+          ],
+          "minimum_trips": 7,
+          "operating_window": [
+            0.0,
+            140.0
+          ],
+          "direction": "clockwise"
+        }
+      ],
+      "edges": [
+        {
+          "origin": "S00",
+          "destination": "S01",
+          "distance_km": 1.17,
+          "minutes": 3.9,
+          "speed_kph": 18.0,
+          "congestion_factor": 1.0
+        },
+        {
+          "origin": "S01",
+          "destination": "S02",
+          "distance_km": 0.627,
+          "minutes": 2.09,
+          "speed_kph": 18.0,
+          "congestion_factor": 1.0
+        },
+        {
+          "origin": "S02",
+          "destination": "S03",
+          "distance_km": 0.66,
+          "minutes": 2.201,
+          "speed_kph": 18.0,
+          "congestion_factor": 1.0
+        },
+        {
+          "origin": "S03",
+          "destination": "S04",
+          "distance_km": 0.548,
+          "minutes": 1.827,
+          "speed_kph": 18.0,
+          "congestion_factor": 1.0
+        },
+        {
+          "origin": "S04",
+          "destination": "S00",
+          "distance_km": 0.57,
+          "minutes": 1.9,
+          "speed_kph": 18.0,
+          "congestion_factor": 1.0
+        },
+        {
+          "origin": "S00",
+          "destination": "S05",
+          "distance_km": 0.627,
+          "minutes": 2.09,
+          "speed_kph": 18.0,
+          "congestion_factor": 1.0
+        },
+        {
+          "origin": "S05",
+          "destination": "S06",
+          "distance_km": 0.549,
+          "minutes": 1.831,
+          "speed_kph": 18.0,
+          "congestion_factor": 1.0
+        },
+        {
+          "origin": "S06",
+          "destination": "S07",
+          "distance_km": 0.639,
+          "minutes": 2.129,
+          "speed_kph": 18.0,
+          "congestion_factor": 1.0
+        },
+        {
+          "origin": "S07",
+          "destination": "S08",
+          "distance_km": 0.66,
+          "minutes": 2.201,
+          "speed_kph": 18.0,
+          "congestion_factor": 1.0
+        },
+        {
+          "origin": "S08",
+          "destination": "S00",
+          "distance_km": 0.701,
+          "minutes": 2.336,
+          "speed_kph": 18.0,
+          "congestion_factor": 1.0
+        },
+        {
+          "origin": "S00",
+          "destination": "S09",
+          "distance_km": 1.093,
+          "minutes": 3.643,
+          "speed_kph": 18.0,
+          "congestion_factor": 1.0
+        },
+        {
+          "origin": "S09",
+          "destination": "S10",
+          "distance_km": 0.751,
+          "minutes": 2.504,
+          "speed_kph": 18.0,
+          "congestion_factor": 1.0
+        },
+        {
+          "origin": "S10",
+          "destination": "S11",
+          "distance_km": 0.602,
+          "minutes": 2.005,
+          "speed_kph": 18.0,
+          "congestion_factor": 1.0
+        },
+        {
+          "origin": "S11",
+          "destination": "S12",
+          "distance_km": 0.851,
+          "minutes": 2.836,
+          "speed_kph": 18.0,
+          "congestion_factor": 1.0
+        },
+        {
+          "origin": "S12",
+          "destination": "S00",
+          "distance_km": 0.783,
+          "minutes": 2.609,
+          "speed_kph": 18.0,
+          "congestion_factor": 1.0
+        }
+      ],
+      "vehicles": [
+        {
+          "id": "V01",
+          "number": "MP-101",
+          "capacity": 22,
+          "status": "available",
+          "available_from": 0.0,
+          "available_until": 140.0,
+          "depot": "S00"
+        },
+        {
+          "id": "V02",
+          "number": "MP-102",
+          "capacity": 26,
+          "status": "available",
+          "available_from": 0.0,
+          "available_until": 140.0,
+          "depot": "S00"
+        },
+        {
+          "id": "V03",
+          "number": "MP-103",
+          "capacity": 32,
+          "status": "available",
+          "available_from": 0.0,
+          "available_until": 140.0,
+          "depot": "S00"
+        },
+        {
+          "id": "V04",
+          "number": "MP-104",
+          "capacity": 36,
+          "status": "available",
+          "available_from": 0.0,
+          "available_until": 140.0,
+          "depot": "S00"
+        },
+        {
+          "id": "V05",
+          "number": "MP-105",
+          "capacity": 28,
+          "status": "available",
+          "available_from": 0.0,
+          "available_until": 140.0,
+          "depot": "S00"
+        },
+        {
+          "id": "V06",
+          "number": "MP-106",
+          "capacity": 30,
+          "status": "available",
+          "available_from": 0.0,
+          "available_until": 140.0,
+          "depot": "S00"
+        },
+        {
+          "id": "V07",
+          "number": "MP-107",
+          "capacity": 45,
+          "status": "available",
+          "available_from": 0.0,
+          "available_until": 140.0,
+          "depot": "S00"
+        }
+      ]
+    },
+    "published": {
+      "id": "published-v1",
+      "trips": [
+        {
+          "id": "T101",
+          "route_id": "R1",
+          "vehicle_id": "V01",
+          "departure": 8.0,
+          "earliest": 4.0,
+          "latest": 12.0
+        },
+        {
+          "id": "T102",
+          "route_id": "R1",
+          "vehicle_id": "V02",
+          "departure": 23.0,
+          "earliest": 19.0,
+          "latest": 27.0
+        },
+        {
+          "id": "T103",
+          "route_id": "R1",
+          "vehicle_id": "V01",
+          "departure": 38.0,
+          "earliest": 34.0,
+          "latest": 42.0
+        },
+        {
+          "id": "T104",
+          "route_id": "R1",
+          "vehicle_id": "V02",
+          "departure": 53.0,
+          "earliest": 49.0,
+          "latest": 57.0
+        },
+        {
+          "id": "T105",
+          "route_id": "R1",
+          "vehicle_id": "V01",
+          "departure": 68.0,
+          "earliest": 64.0,
+          "latest": 72.0
+        },
+        {
+          "id": "T106",
+          "route_id": "R1",
+          "vehicle_id": "V02",
+          "departure": 83.0,
+          "earliest": 79.0,
+          "latest": 87.0
+        },
+        {
+          "id": "T107",
+          "route_id": "R1",
+          "vehicle_id": "V01",
+          "departure": 98.0,
+          "earliest": 94.0,
+          "latest": 102.0
+        },
+        {
+          "id": "T201",
+          "route_id": "R2",
+          "vehicle_id": "V03",
+          "departure": 10.0,
+          "earliest": 6.0,
+          "latest": 14.0
+        },
+        {
+          "id": "T202",
+          "route_id": "R2",
+          "vehicle_id": "V04",
+          "departure": 25.0,
+          "earliest": 21.0,
+          "latest": 29.0
+        },
+        {
+          "id": "T203",
+          "route_id": "R2",
+          "vehicle_id": "V03",
+          "departure": 40.0,
+          "earliest": 36.0,
+          "latest": 44.0
+        },
+        {
+          "id": "T204",
+          "route_id": "R2",
+          "vehicle_id": "V04",
+          "departure": 55.0,
+          "earliest": 51.0,
+          "latest": 59.0
+        },
+        {
+          "id": "T205",
+          "route_id": "R2",
+          "vehicle_id": "V03",
+          "departure": 70.0,
+          "earliest": 66.0,
+          "latest": 74.0
+        },
+        {
+          "id": "T206",
+          "route_id": "R2",
+          "vehicle_id": "V04",
+          "departure": 85.0,
+          "earliest": 81.0,
+          "latest": 89.0
+        },
+        {
+          "id": "T207",
+          "route_id": "R2",
+          "vehicle_id": "V03",
+          "departure": 100.0,
+          "earliest": 96.0,
+          "latest": 104.0
+        },
+        {
+          "id": "T301",
+          "route_id": "R3",
+          "vehicle_id": "V05",
+          "departure": 12.0,
+          "earliest": 8.0,
+          "latest": 16.0
+        },
+        {
+          "id": "T302",
+          "route_id": "R3",
+          "vehicle_id": "V06",
+          "departure": 27.0,
+          "earliest": 23.0,
+          "latest": 31.0
+        },
+        {
+          "id": "T303",
+          "route_id": "R3",
+          "vehicle_id": "V05",
+          "departure": 42.0,
+          "earliest": 38.0,
+          "latest": 46.0
+        },
+        {
+          "id": "T304",
+          "route_id": "R3",
+          "vehicle_id": "V06",
+          "departure": 57.0,
+          "earliest": 53.0,
+          "latest": 61.0
+        },
+        {
+          "id": "T305",
+          "route_id": "R3",
+          "vehicle_id": "V05",
+          "departure": 72.0,
+          "earliest": 68.0,
+          "latest": 76.0
+        },
+        {
+          "id": "T306",
+          "route_id": "R3",
+          "vehicle_id": "V06",
+          "departure": 87.0,
+          "earliest": 83.0,
+          "latest": 91.0
+        },
+        {
+          "id": "T307",
+          "route_id": "R3",
+          "vehicle_id": "V05",
+          "departure": 102.0,
+          "earliest": 98.0,
+          "latest": 106.0
+        }
+      ]
+    },
+    "candidate": {
+      "id": "candidate-20",
+      "trips": [
+        {
+          "id": "T101",
+          "route_id": "R1",
+          "vehicle_id": "V07",
+          "departure": 10.0,
+          "earliest": 4.0,
+          "latest": 12.0
+        },
+        {
+          "id": "T102",
+          "route_id": "R1",
+          "vehicle_id": "V04",
+          "departure": 25.0,
+          "earliest": 19.0,
+          "latest": 27.0
+        },
+        {
+          "id": "T103",
+          "route_id": "R1",
+          "vehicle_id": "V03",
+          "departure": 40.0,
+          "earliest": 34.0,
+          "latest": 42.0
+        },
+        {
+          "id": "T104",
+          "route_id": "R1",
+          "vehicle_id": "V07",
+          "departure": 55.0,
+          "earliest": 49.0,
+          "latest": 57.0
+        },
+        {
+          "id": "T105",
+          "route_id": "R1",
+          "vehicle_id": "V03",
+          "departure": 70.0,
+          "earliest": 64.0,
+          "latest": 72.0
+        },
+        {
+          "id": "T106",
+          "route_id": "R1",
+          "vehicle_id": "V04",
+          "departure": 85.0,
+          "earliest": 79.0,
+          "latest": 87.0
+        },
+        {
+          "id": "T107",
+          "route_id": "R1",
+          "vehicle_id": "V07",
+          "departure": 100.0,
+          "earliest": 94.0,
+          "latest": 102.0
+        },
+        {
+          "id": "T201",
+          "route_id": "R2",
+          "vehicle_id": "V03",
+          "departure": 8.0,
+          "earliest": 6.0,
+          "latest": 14.0
+        },
+        {
+          "id": "T202",
+          "route_id": "R2",
+          "vehicle_id": "V03",
+          "departure": 23.0,
+          "earliest": 21.0,
+          "latest": 29.0
+        },
+        {
+          "id": "T203",
+          "route_id": "R2",
+          "vehicle_id": "V07",
+          "departure": 38.0,
+          "earliest": 36.0,
+          "latest": 44.0
+        },
+        {
+          "id": "T204",
+          "route_id": "R2",
+          "vehicle_id": "V04",
+          "departure": 53.0,
+          "earliest": 51.0,
+          "latest": 59.0
+        },
+        {
+          "id": "T205",
+          "route_id": "R2",
+          "vehicle_id": "V04",
+          "departure": 68.0,
+          "earliest": 66.0,
+          "latest": 74.0
+        },
+        {
+          "id": "T206",
+          "route_id": "R2",
+          "vehicle_id": "V07",
+          "departure": 83.0,
+          "earliest": 81.0,
+          "latest": 89.0
+        },
+        {
+          "id": "T207",
+          "route_id": "R2",
+          "vehicle_id": "V03",
+          "departure": 98.0,
+          "earliest": 96.0,
+          "latest": 104.0
+        },
+        {
+          "id": "T301",
+          "route_id": "R3",
+          "vehicle_id": "V02",
+          "departure": 10.0,
+          "earliest": 8.0,
+          "latest": 16.0
+        },
+        {
+          "id": "T302",
+          "route_id": "R3",
+          "vehicle_id": "V06",
+          "departure": 25.0,
+          "earliest": 23.0,
+          "latest": 31.0
+        },
+        {
+          "id": "T303",
+          "route_id": "R3",
+          "vehicle_id": "V05",
+          "departure": 40.0,
+          "earliest": 38.0,
+          "latest": 46.0
+        },
+        {
+          "id": "T304",
+          "route_id": "R3",
+          "vehicle_id": "V06",
+          "departure": 55.0,
+          "earliest": 53.0,
+          "latest": 61.0
+        },
+        {
+          "id": "T305",
+          "route_id": "R3",
+          "vehicle_id": "V05",
+          "departure": 70.0,
+          "earliest": 68.0,
+          "latest": 76.0
+        },
+        {
+          "id": "T306",
+          "route_id": "R3",
+          "vehicle_id": "V06",
+          "departure": 85.0,
+          "earliest": 83.0,
+          "latest": 91.0
+        },
+        {
+          "id": "T307",
+          "route_id": "R3",
+          "vehicle_id": "V05",
+          "departure": 100.0,
+          "earliest": 98.0,
+          "latest": 106.0
+        }
+      ]
+    },
+    "scenario": {
+      "id": "normal",
+      "name": "Normal Campus Operations",
+      "description": "A typical weekday with steady campus travel.",
+      "challenge": "Maintain dependable service with a reserve vehicle.",
+      "seed": 4101,
+      "version": "1.0",
+      "demand_multiplier": 1.0,
+      "traffic_factor": 1.0,
+      "affected_route": "R1",
+      "breakdown_vehicle": null,
+      "disruption_start": 20.0,
+      "disruption_end": 90.0,
+      "horizon": 120.0,
+      "epoch_utc": "2026-10-14T02:30:00Z",
+      "timezone": "Asia/Kolkata"
+    }
+  },
+  "demand_model_version": "1.0.0",
+  "simulator_version": "1.0.0",
+  "bootstrap_seed": 91023,
+  "bootstrap_samples": 2000,
+  "summary": {
+    "served": {
+      "mean_delta": 80.9,
+      "minimum_delta": 44,
+      "maximum_delta": 103,
+      "mean_ci_low": 74.2987,
+      "mean_ci_high": 86.9013
+    },
+    "average_wait": {
+      "mean_delta": -7.3021,
+      "minimum_delta": -9.415,
+      "maximum_delta": -4.827,
+      "mean_ci_low": -7.8245,
+      "mean_ci_high": -6.7696
+    },
+    "missed_connections": {
+      "mean_delta": -1.8,
+      "minimum_delta": -12,
+      "maximum_delta": 8,
+      "mean_ci_low": -4.0,
+      "mean_ci_high": 0.35
+    },
+    "operating_minutes": {
+      "mean_delta": 0.134,
+      "minimum_delta": -2.862,
+      "maximum_delta": 3.889,
+      "mean_ci_low": -0.7589,
+      "mean_ci_high": 1.0482
+    }
+  },
+  "service_win_days": 20,
+  "service_loss_days": 0,
+  "transfer_regression_days": 7,
+  "candidate_capacity_violations": 0,
+  "candidate_feasibility_violations": 0,
+  "origins": [
+    {
+      "stop_id": "S00",
+      "stop_name": "Transit Commons",
+      "passengers": 2725,
+      "baseline_service_rate": 99.23,
+      "candidate_service_rate": 99.3,
+      "mean_wait_delta": -0.124
+    },
+    {
+      "stop_id": "S01",
+      "stop_name": "North Residences",
+      "passengers": 2935,
+      "baseline_service_rate": 77.65,
+      "candidate_service_rate": 94.31,
+      "mean_wait_delta": -13.394
+    },
+    {
+      "stop_id": "S02",
+      "stop_name": "West Residences",
+      "passengers": 1236,
+      "baseline_service_rate": 4.21,
+      "candidate_service_rate": 95.39,
+      "mean_wait_delta": -39.125
+    },
+    {
+      "stop_id": "S03",
+      "stop_name": "Academic Quarter",
+      "passengers": 340,
+      "baseline_service_rate": 100.0,
+      "candidate_service_rate": 100.0,
+      "mean_wait_delta": 0.483
+    },
+    {
+      "stop_id": "S05",
+      "stop_name": "Administration",
+      "passengers": 1301,
+      "baseline_service_rate": 100.0,
+      "candidate_service_rate": 100.0,
+      "mean_wait_delta": -0.286
+    },
+    {
+      "stop_id": "S06",
+      "stop_name": "Research Park",
+      "passengers": 794,
+      "baseline_service_rate": 100.0,
+      "candidate_service_rate": 100.0,
+      "mean_wait_delta": -0.085
+    },
+    {
+      "stop_id": "S07",
+      "stop_name": "Innovation Center",
+      "passengers": 333,
+      "baseline_service_rate": 100.0,
+      "candidate_service_rate": 100.0,
+      "mean_wait_delta": 0.059
+    },
+    {
+      "stop_id": "S09",
+      "stop_name": "South Parking",
+      "passengers": 1300,
+      "baseline_service_rate": 100.0,
+      "candidate_service_rate": 100.0,
+      "mean_wait_delta": -0.101
+    },
+    {
+      "stop_id": "S10",
+      "stop_name": "Sports Complex",
+      "passengers": 790,
+      "baseline_service_rate": 100.0,
+      "candidate_service_rate": 100.0,
+      "mean_wait_delta": -0.246
+    },
+    {
+      "stop_id": "S11",
+      "stop_name": "Auditorium",
+      "passengers": 381,
+      "baseline_service_rate": 100.0,
+      "candidate_service_rate": 100.0,
+      "mean_wait_delta": -0.1
+    }
+  ],
+  "rows": [
+    {
+      "seed": 70001,
+      "demand_sha256": "d892d1abfdabc8f94d9db6900fa5bb977ed6674c5c4157266156c5bedc00601e",
+      "baseline": {
+        "passengers": 628,
+        "served": 548,
+        "unserved": 80,
+        "service_rate": 87.261,
+        "average_wait": 17.273,
+        "p95_wait": 75.276,
+        "missed_connections": 12,
+        "successful_connections": 31,
+        "fleet_utilization": 36.567,
+        "operating_minutes": 307.159,
+        "total_trip_delay": 12.231,
+        "capacity_violations": 0,
+        "feasibility_violations": 0
+      },
+      "candidate": {
+        "passengers": 628,
+        "served": 619,
+        "unserved": 9,
+        "service_rate": 98.567,
+        "average_wait": 11.023,
+        "p95_wait": 32.884,
+        "missed_connections": 7,
+        "successful_connections": 43,
+        "fleet_utilization": 36.434,
+        "operating_minutes": 306.048,
+        "total_trip_delay": 10.777,
+        "capacity_violations": 0,
+        "feasibility_violations": 0
+      },
+      "delta": {
+        "served": 71,
+        "average_wait": -6.25,
+        "missed_connections": -5,
+        "operating_minutes": -1.111
+      }
+    },
+    {
+      "seed": 70002,
+      "demand_sha256": "f0f2646c27dc3f509c4c73eedfa3d2f2cff574da3e1900bc97563a60048627f2",
+      "baseline": {
+        "passengers": 584,
+        "served": 486,
+        "unserved": 98,
+        "service_rate": 83.219,
+        "average_wait": 21.836,
+        "p95_wait": 81.872,
+        "missed_connections": 12,
+        "successful_connections": 21,
+        "fleet_utilization": 36.439,
+        "operating_minutes": 306.09,
+        "total_trip_delay": 10.236,
+        "capacity_violations": 0,
+        "feasibility_violations": 0
+      },
+      "candidate": {
+        "passengers": 584,
+        "served": 576,
+        "unserved": 8,
+        "service_rate": 98.63,
+        "average_wait": 12.421,
+        "p95_wait": 45.376,
+        "missed_connections": 7,
+        "successful_connections": 35,
+        "fleet_utilization": 36.39,
+        "operating_minutes": 305.679,
+        "total_trip_delay": 11.487,
+        "capacity_violations": 0,
+        "feasibility_violations": 0
+      },
+      "delta": {
+        "served": 90,
+        "average_wait": -9.415,
+        "missed_connections": -5,
+        "operating_minutes": -0.411
+      }
+    },
+    {
+      "seed": 70003,
+      "demand_sha256": "724aa5c28e00f84735e4f4b110a67cc1d43ee6aa4f92ea4d93c0b3d061a564cb",
+      "baseline": {
+        "passengers": 619,
+        "served": 519,
+        "unserved": 100,
+        "service_rate": 83.845,
+        "average_wait": 20.183,
+        "p95_wait": 87.995,
+        "missed_connections": 8,
+        "successful_connections": 27,
+        "fleet_utilization": 35.566,
+        "operating_minutes": 298.75,
+        "total_trip_delay": 5.883,
+        "capacity_violations": 0,
+        "feasibility_violations": 0
+      },
+      "candidate": {
+        "passengers": 619,
+        "served": 615,
+        "unserved": 4,
+        "service_rate": 99.354,
+        "average_wait": 11.491,
+        "p95_wait": 34.764,
+        "missed_connections": 4,
+        "successful_connections": 36,
+        "fleet_utilization": 35.361,
+        "operating_minutes": 297.035,
+        "total_trip_delay": 5.833,
+        "capacity_violations": 0,
+        "feasibility_violations": 0
+      },
+      "delta": {
+        "served": 96,
+        "average_wait": -8.692,
+        "missed_connections": -4,
+        "operating_minutes": -1.715
+      }
+    },
+    {
+      "seed": 70004,
+      "demand_sha256": "999f0bb5936aeb5d324286ea0bb7d924c5ba8b475689b6cc79f5e9f76ba48efe",
+      "baseline": {
+        "passengers": 608,
+        "served": 496,
+        "unserved": 112,
+        "service_rate": 81.579,
+        "average_wait": 21.796,
+        "p95_wait": 91.566,
+        "missed_connections": 13,
+        "successful_connections": 19,
+        "fleet_utilization": 35.912,
+        "operating_minutes": 301.661,
+        "total_trip_delay": 7.224,
+        "capacity_violations": 0,
+        "feasibility_violations": 0
+      },
+      "candidate": {
+        "passengers": 608,
+        "served": 599,
+        "unserved": 9,
+        "service_rate": 98.52,
+        "average_wait": 12.534,
+        "p95_wait": 46.288,
+        "missed_connections": 9,
+        "successful_connections": 33,
+        "fleet_utilization": 35.62,
+        "operating_minutes": 299.21,
+        "total_trip_delay": 7.087,
+        "capacity_violations": 0,
+        "feasibility_violations": 0
+      },
+      "delta": {
+        "served": 103,
+        "average_wait": -9.262,
+        "missed_connections": -4,
+        "operating_minutes": -2.451
+      }
+    },
+    {
+      "seed": 70005,
+      "demand_sha256": "a99074bbb68bc77fde90fbaa4b64765b9a6c6986fc187f774a7bb96ed323129d",
+      "baseline": {
+        "passengers": 562,
+        "served": 485,
+        "unserved": 77,
+        "service_rate": 86.299,
+        "average_wait": 17.387,
+        "p95_wait": 79.09,
+        "missed_connections": 12,
+        "successful_connections": 30,
+        "fleet_utilization": 35.32,
+        "operating_minutes": 296.688,
+        "total_trip_delay": 5.303,
+        "capacity_violations": 0,
+        "feasibility_violations": 0
+      },
+      "candidate": {
+        "passengers": 562,
+        "served": 553,
+        "unserved": 9,
+        "service_rate": 98.399,
+        "average_wait": 10.397,
+        "p95_wait": 28.293,
+        "missed_connections": 8,
+        "successful_connections": 38,
+        "fleet_utilization": 35.128,
+        "operating_minutes": 295.076,
+        "total_trip_delay": 3.207,
+        "capacity_violations": 0,
+        "feasibility_violations": 0
+      },
+      "delta": {
+        "served": 68,
+        "average_wait": -6.99,
+        "missed_connections": -4,
+        "operating_minutes": -1.612
+      }
+    },
+    {
+      "seed": 70006,
+      "demand_sha256": "720268d1df09945a03cce1150f0b8d2183e226a884d8846e9584b083a6c71ad3",
+      "baseline": {
+        "passengers": 606,
+        "served": 501,
+        "unserved": 105,
+        "service_rate": 82.673,
+        "average_wait": 20.712,
+        "p95_wait": 89.458,
+        "missed_connections": 3,
+        "successful_connections": 28,
+        "fleet_utilization": 36.308,
+        "operating_minutes": 304.988,
+        "total_trip_delay": 8.902,
+        "capacity_violations": 0,
+        "feasibility_violations": 0
+      },
+      "candidate": {
+        "passengers": 606,
+        "served": 600,
+        "unserved": 6,
+        "service_rate": 99.01,
+        "average_wait": 12.107,
+        "p95_wait": 46.44,
+        "missed_connections": 4,
+        "successful_connections": 33,
+        "fleet_utilization": 36.058,
+        "operating_minutes": 302.883,
+        "total_trip_delay": 10.429,
+        "capacity_violations": 0,
+        "feasibility_violations": 0
+      },
+      "delta": {
+        "served": 99,
+        "average_wait": -8.605,
+        "missed_connections": 1,
+        "operating_minutes": -2.105
+      }
+    },
+    {
+      "seed": 70007,
+      "demand_sha256": "a9ac962f450109446f1725353963c775c98b80021faaf435cdf13700967bc17c",
+      "baseline": {
+        "passengers": 593,
+        "served": 478,
+        "unserved": 115,
+        "service_rate": 80.607,
+        "average_wait": 21.679,
+        "p95_wait": 87.245,
+        "missed_connections": 19,
+        "successful_connections": 17,
+        "fleet_utilization": 36.443,
+        "operating_minutes": 306.124,
+        "total_trip_delay": 9.908,
+        "capacity_violations": 0,
+        "feasibility_violations": 0
+      },
+      "candidate": {
+        "passengers": 593,
+        "served": 570,
+        "unserved": 23,
+        "service_rate": 96.121,
+        "average_wait": 13.966,
+        "p95_wait": 60.583,
+        "missed_connections": 16,
+        "successful_connections": 37,
+        "fleet_utilization": 36.103,
+        "operating_minutes": 303.262,
+        "total_trip_delay": 9.361,
+        "capacity_violations": 0,
+        "feasibility_violations": 0
+      },
+      "delta": {
+        "served": 92,
+        "average_wait": -7.713,
+        "missed_connections": -3,
+        "operating_minutes": -2.862
+      }
+    },
+    {
+      "seed": 70008,
+      "demand_sha256": "cc4264ef3a246ed50753ed32be27ffb4052058ccb8e78678f119202d04463fad",
+      "baseline": {
+        "passengers": 634,
+        "served": 493,
+        "unserved": 141,
+        "service_rate": 77.76,
+        "average_wait": 23.887,
+        "p95_wait": 89.647,
+        "missed_connections": 17,
+        "successful_connections": 23,
+        "fleet_utilization": 35.418,
+        "operating_minutes": 297.513,
+        "total_trip_delay": 7.718,
+        "capacity_violations": 0,
+        "feasibility_violations": 0
+      },
+      "candidate": {
+        "passengers": 634,
+        "served": 579,
+        "unserved": 55,
+        "service_rate": 91.325,
+        "average_wait": 16.812,
+        "p95_wait": 76.924,
+        "missed_connections": 17,
+        "successful_connections": 52,
+        "fleet_utilization": 35.265,
+        "operating_minutes": 296.23,
+        "total_trip_delay": 7.814,
+        "capacity_violations": 0,
+        "feasibility_violations": 0
+      },
+      "delta": {
+        "served": 86,
+        "average_wait": -7.075,
+        "missed_connections": 0,
+        "operating_minutes": -1.283
+      }
+    },
+    {
+      "seed": 70009,
+      "demand_sha256": "d3ad3f5f1b04b646379fc12c3a9e06bfd8f0113fdab7ebe4a7149a4b874198e2",
+      "baseline": {
+        "passengers": 576,
+        "served": 489,
+        "unserved": 87,
+        "service_rate": 84.896,
+        "average_wait": 20.435,
+        "p95_wait": 89.446,
+        "missed_connections": 4,
+        "successful_connections": 26,
+        "fleet_utilization": 35.892,
+        "operating_minutes": 301.49,
+        "total_trip_delay": 6.804,
+        "capacity_violations": 0,
+        "feasibility_violations": 0
+      },
+      "candidate": {
+        "passengers": 576,
+        "served": 567,
+        "unserved": 9,
+        "service_rate": 98.438,
+        "average_wait": 12.091,
+        "p95_wait": 42.715,
+        "missed_connections": 9,
+        "successful_connections": 30,
+        "fleet_utilization": 35.995,
+        "operating_minutes": 302.354,
+        "total_trip_delay": 6.413,
+        "capacity_violations": 0,
+        "feasibility_violations": 0
+      },
+      "delta": {
+        "served": 78,
+        "average_wait": -8.344,
+        "missed_connections": 5,
+        "operating_minutes": 0.864
+      }
+    },
+    {
+      "seed": 70010,
+      "demand_sha256": "de9215d5f5c7899e89fd5fc709cce0a20ab99ee5deff224b9d480db493c7f65b",
+      "baseline": {
+        "passengers": 621,
+        "served": 553,
+        "unserved": 68,
+        "service_rate": 89.05,
+        "average_wait": 16.864,
+        "p95_wait": 76.409,
+        "missed_connections": 10,
+        "successful_connections": 21,
+        "fleet_utilization": 35.937,
+        "operating_minutes": 301.87,
+        "total_trip_delay": 6.589,
+        "capacity_violations": 0,
+        "feasibility_violations": 0
+      },
+      "candidate": {
+        "passengers": 621,
+        "served": 613,
+        "unserved": 8,
+        "service_rate": 98.712,
+        "average_wait": 10.916,
+        "p95_wait": 29.975,
+        "missed_connections": 6,
+        "successful_connections": 27,
+        "fleet_utilization": 36.032,
+        "operating_minutes": 302.665,
+        "total_trip_delay": 6.934,
+        "capacity_violations": 0,
+        "feasibility_violations": 0
+      },
+      "delta": {
+        "served": 60,
+        "average_wait": -5.948,
+        "missed_connections": -4,
+        "operating_minutes": 0.795
+      }
+    },
+    {
+      "seed": 70011,
+      "demand_sha256": "2954086aab585f04958c70845772c71f71c1243ab8e993bae687788c1087c99a",
+      "baseline": {
+        "passengers": 621,
+        "served": 510,
+        "unserved": 111,
+        "service_rate": 82.126,
+        "average_wait": 20.143,
+        "p95_wait": 86.687,
+        "missed_connections": 3,
+        "successful_connections": 35,
+        "fleet_utilization": 35.848,
+        "operating_minutes": 301.119,
+        "total_trip_delay": 8.671,
+        "capacity_violations": 0,
+        "feasibility_violations": 0
+      },
+      "candidate": {
+        "passengers": 621,
+        "served": 597,
+        "unserved": 24,
+        "service_rate": 96.135,
+        "average_wait": 13.02,
+        "p95_wait": 50.49,
+        "missed_connections": 11,
+        "successful_connections": 38,
+        "fleet_utilization": 36.272,
+        "operating_minutes": 304.688,
+        "total_trip_delay": 11.107,
+        "capacity_violations": 0,
+        "feasibility_violations": 0
+      },
+      "delta": {
+        "served": 87,
+        "average_wait": -7.123,
+        "missed_connections": 8,
+        "operating_minutes": 3.569
+      }
+    },
+    {
+      "seed": 70012,
+      "demand_sha256": "373e55ee62a3a074ccb65060469a027c94d45af045b5341a5f3ee73632385a19",
+      "baseline": {
+        "passengers": 611,
+        "served": 515,
+        "unserved": 96,
+        "service_rate": 84.288,
+        "average_wait": 19.348,
+        "p95_wait": 86.132,
+        "missed_connections": 19,
+        "successful_connections": 14,
+        "fleet_utilization": 35.235,
+        "operating_minutes": 295.972,
+        "total_trip_delay": 7.329,
+        "capacity_violations": 0,
+        "feasibility_violations": 0
+      },
+      "candidate": {
+        "passengers": 611,
+        "served": 601,
+        "unserved": 10,
+        "service_rate": 98.363,
+        "average_wait": 11.213,
+        "p95_wait": 39.324,
+        "missed_connections": 9,
+        "successful_connections": 32,
+        "fleet_utilization": 35.188,
+        "operating_minutes": 295.579,
+        "total_trip_delay": 5.463,
+        "capacity_violations": 0,
+        "feasibility_violations": 0
+      },
+      "delta": {
+        "served": 86,
+        "average_wait": -8.135,
+        "missed_connections": -10,
+        "operating_minutes": -0.393
+      }
+    },
+    {
+      "seed": 70013,
+      "demand_sha256": "8a01224a0d1ca50a5a0534add0bd33ac18378adbc6e5936bf6e3fb55ec74fd14",
+      "baseline": {
+        "passengers": 618,
+        "served": 527,
+        "unserved": 91,
+        "service_rate": 85.275,
+        "average_wait": 18.834,
+        "p95_wait": 75.859,
+        "missed_connections": 18,
+        "successful_connections": 24,
+        "fleet_utilization": 35.774,
+        "operating_minutes": 300.505,
+        "total_trip_delay": 8.032,
+        "capacity_violations": 0,
+        "feasibility_violations": 0
+      },
+      "candidate": {
+        "passengers": 618,
+        "served": 612,
+        "unserved": 6,
+        "service_rate": 99.029,
+        "average_wait": 11.81,
+        "p95_wait": 39.038,
+        "missed_connections": 6,
+        "successful_connections": 43,
+        "fleet_utilization": 35.897,
+        "operating_minutes": 301.538,
+        "total_trip_delay": 8.694,
+        "capacity_violations": 0,
+        "feasibility_violations": 0
+      },
+      "delta": {
+        "served": 85,
+        "average_wait": -7.024,
+        "missed_connections": -12,
+        "operating_minutes": 1.033
+      }
+    },
+    {
+      "seed": 70014,
+      "demand_sha256": "2eae2ee9b13aaf344cf7a589dcb71d71fdca658dea7051fda218387cf9a74e9a",
+      "baseline": {
+        "passengers": 617,
+        "served": 526,
+        "unserved": 91,
+        "service_rate": 85.251,
+        "average_wait": 17.978,
+        "p95_wait": 80.89,
+        "missed_connections": 5,
+        "successful_connections": 29,
+        "fleet_utilization": 36.421,
+        "operating_minutes": 305.934,
+        "total_trip_delay": 11.29,
+        "capacity_violations": 0,
+        "feasibility_violations": 0
+      },
+      "candidate": {
+        "passengers": 617,
+        "served": 607,
+        "unserved": 10,
+        "service_rate": 98.379,
+        "average_wait": 12.152,
+        "p95_wait": 43.346,
+        "missed_connections": 9,
+        "successful_connections": 33,
+        "fleet_utilization": 36.172,
+        "operating_minutes": 303.846,
+        "total_trip_delay": 8.454,
+        "capacity_violations": 0,
+        "feasibility_violations": 0
+      },
+      "delta": {
+        "served": 81,
+        "average_wait": -5.826,
+        "missed_connections": 4,
+        "operating_minutes": -2.088
+      }
+    },
+    {
+      "seed": 70015,
+      "demand_sha256": "4e7c54ad750c29cd3dde470e0457e6e7258c7693dda90c938dc300e2554902b8",
+      "baseline": {
+        "passengers": 606,
+        "served": 531,
+        "unserved": 75,
+        "service_rate": 87.624,
+        "average_wait": 17.268,
+        "p95_wait": 82.293,
+        "missed_connections": 5,
+        "successful_connections": 37,
+        "fleet_utilization": 35.561,
+        "operating_minutes": 298.713,
+        "total_trip_delay": 6.364,
+        "capacity_violations": 0,
+        "feasibility_violations": 0
+      },
+      "candidate": {
+        "passengers": 606,
+        "served": 596,
+        "unserved": 10,
+        "service_rate": 98.35,
+        "average_wait": 10.974,
+        "p95_wait": 33.008,
+        "missed_connections": 8,
+        "successful_connections": 38,
+        "fleet_utilization": 36.024,
+        "operating_minutes": 302.602,
+        "total_trip_delay": 9.192,
+        "capacity_violations": 0,
+        "feasibility_violations": 0
+      },
+      "delta": {
+        "served": 65,
+        "average_wait": -6.294,
+        "missed_connections": 3,
+        "operating_minutes": 3.889
+      }
+    },
+    {
+      "seed": 70016,
+      "demand_sha256": "ad44ab6f4a08ab2fdbe9edcaef6f1d89b858d41474e226da56b02c63b72a35d6",
+      "baseline": {
+        "passengers": 556,
+        "served": 505,
+        "unserved": 51,
+        "service_rate": 90.827,
+        "average_wait": 15.018,
+        "p95_wait": 77.41,
+        "missed_connections": 8,
+        "successful_connections": 28,
+        "fleet_utilization": 35.593,
+        "operating_minutes": 298.98,
+        "total_trip_delay": 8.141,
+        "capacity_violations": 0,
+        "feasibility_violations": 0
+      },
+      "candidate": {
+        "passengers": 556,
+        "served": 549,
+        "unserved": 7,
+        "service_rate": 98.741,
+        "average_wait": 10.191,
+        "p95_wait": 27.284,
+        "missed_connections": 7,
+        "successful_connections": 29,
+        "fleet_utilization": 35.928,
+        "operating_minutes": 301.793,
+        "total_trip_delay": 9.197,
+        "capacity_violations": 0,
+        "feasibility_violations": 0
+      },
+      "delta": {
+        "served": 44,
+        "average_wait": -4.827,
+        "missed_connections": -1,
+        "operating_minutes": 2.813
+      }
+    },
+    {
+      "seed": 70017,
+      "demand_sha256": "948b0304cdff35e1b0e17d556c9103c372450a7793bd2159f49c36ab6eee349d",
+      "baseline": {
+        "passengers": 599,
+        "served": 524,
+        "unserved": 75,
+        "service_rate": 87.479,
+        "average_wait": 18.024,
+        "p95_wait": 80.98,
+        "missed_connections": 16,
+        "successful_connections": 14,
+        "fleet_utilization": 36.53,
+        "operating_minutes": 306.856,
+        "total_trip_delay": 9.242,
+        "capacity_violations": 0,
+        "feasibility_violations": 0
+      },
+      "candidate": {
+        "passengers": 599,
+        "served": 590,
+        "unserved": 9,
+        "service_rate": 98.497,
+        "average_wait": 12.045,
+        "p95_wait": 48.954,
+        "missed_connections": 9,
+        "successful_connections": 27,
+        "fleet_utilization": 36.754,
+        "operating_minutes": 308.734,
+        "total_trip_delay": 11.612,
+        "capacity_violations": 0,
+        "feasibility_violations": 0
+      },
+      "delta": {
+        "served": 66,
+        "average_wait": -5.979,
+        "missed_connections": -7,
+        "operating_minutes": 1.878
+      }
+    },
+    {
+      "seed": 70018,
+      "demand_sha256": "83c56ebfdaf838d61652cadafbc2aa65e74e94a8e6e45e76c010cbc02dc2355a",
+      "baseline": {
+        "passengers": 638,
+        "served": 540,
+        "unserved": 98,
+        "service_rate": 84.639,
+        "average_wait": 19.368,
+        "p95_wait": 76.305,
+        "missed_connections": 11,
+        "successful_connections": 30,
+        "fleet_utilization": 35.95,
+        "operating_minutes": 301.979,
+        "total_trip_delay": 10.079,
+        "capacity_violations": 0,
+        "feasibility_violations": 0
+      },
+      "candidate": {
+        "passengers": 638,
+        "served": 627,
+        "unserved": 11,
+        "service_rate": 98.276,
+        "average_wait": 12.333,
+        "p95_wait": 42.98,
+        "missed_connections": 9,
+        "successful_connections": 43,
+        "fleet_utilization": 36.206,
+        "operating_minutes": 304.127,
+        "total_trip_delay": 10.762,
+        "capacity_violations": 0,
+        "feasibility_violations": 0
+      },
+      "delta": {
+        "served": 87,
+        "average_wait": -7.035,
+        "missed_connections": -2,
+        "operating_minutes": 2.148
+      }
+    },
+    {
+      "seed": 70019,
+      "demand_sha256": "538917be8a2b12051bfa4408cbda21dae6990b0bf7dc7a0e2ceb73068f50a570",
+      "baseline": {
+        "passengers": 635,
+        "served": 534,
+        "unserved": 101,
+        "service_rate": 84.094,
+        "average_wait": 19.522,
+        "p95_wait": 81.771,
+        "missed_connections": 6,
+        "successful_connections": 39,
+        "fleet_utilization": 36.137,
+        "operating_minutes": 303.547,
+        "total_trip_delay": 8.44,
+        "capacity_violations": 0,
+        "feasibility_violations": 0
+      },
+      "candidate": {
+        "passengers": 635,
+        "served": 627,
+        "unserved": 8,
+        "service_rate": 98.74,
+        "average_wait": 11.898,
+        "p95_wait": 42.079,
+        "missed_connections": 7,
+        "successful_connections": 47,
+        "fleet_utilization": 36.126,
+        "operating_minutes": 303.46,
+        "total_trip_delay": 8.946,
+        "capacity_violations": 0,
+        "feasibility_violations": 0
+      },
+      "delta": {
+        "served": 93,
+        "average_wait": -7.624,
+        "missed_connections": 1,
+        "operating_minutes": -0.087
+      }
+    },
+    {
+      "seed": 70020,
+      "demand_sha256": "3d8574bf6fd46fd70eed665a1d587990e5c88697ff1668f592273e87b94ec2df",
+      "baseline": {
+        "passengers": 603,
+        "served": 514,
+        "unserved": 89,
+        "service_rate": 85.24,
+        "average_wait": 19.848,
+        "p95_wait": 80.544,
+        "missed_connections": 2,
+        "successful_connections": 35,
+        "fleet_utilization": 35.204,
+        "operating_minutes": 295.713,
+        "total_trip_delay": 3.511,
+        "capacity_violations": 0,
+        "feasibility_violations": 0
+      },
+      "candidate": {
+        "passengers": 603,
+        "served": 595,
+        "unserved": 8,
+        "service_rate": 98.673,
+        "average_wait": 11.967,
+        "p95_wait": 34.482,
+        "missed_connections": 5,
+        "successful_connections": 37,
+        "fleet_utilization": 35.419,
+        "operating_minutes": 297.523,
+        "total_trip_delay": 6.397,
+        "capacity_violations": 0,
+        "feasibility_violations": 0
+      },
+      "delta": {
+        "served": 81,
+        "average_wait": -7.881,
+        "missed_connections": 3,
+        "operating_minutes": 1.81
+      }
+    }
+  ],
+  "methodology": "Frozen plan; 20 prespecified synthetic days; identical passengers and traffic field within each pair. Deltas are candidate minus published. 95% percentile bootstrap intervals describe the mean over this simulator distribution, not real-world performance or next-day guarantees. No reoptimization or seed selection. Reusing this suite to tune the model invalidates its holdout status."
+}

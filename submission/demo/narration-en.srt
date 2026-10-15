@@ -1,0 +1,95 @@
+1
+00:00:00,451 --> 00:00:03,061
+Campus journeys should not depend on guesswork.
+
+2
+00:00:03,061 --> 00:00:08,002
+Route Pulse helps operators test better transport plans with the fleet they already have.
+
+3
+00:00:08,002 --> 00:00:11,445
+This demonstration uses a fictional campus and synthetic data.
+
+4
+00:00:13,043 --> 00:00:14,965
+We start a real optimization run.
+
+5
+00:00:14,965 --> 00:00:20,731
+It adjusts departures within allowed windows and reassigns existing vehicles, without adding buses.
+
+6
+00:00:21,890 --> 00:00:24,451
+The proposed plan changes twenty one duties.
+
+7
+00:00:24,451 --> 00:00:26,780
+All ten hard constraint categories pass.
+
+8
+00:00:26,780 --> 00:00:30,855
+The operator can review the changes before accepting a recommendation.
+
+9
+00:00:31,305 --> 00:00:35,171
+For a fair comparison, both plans face the same passengers and traffic.
+
+10
+00:00:35,171 --> 00:00:39,690
+Completed journeys rise from seven hundred and six to eight hundred and forty nine.
+
+11
+00:00:39,690 --> 00:00:44,591
+Average waiting falls from thirty five point three to twenty eight point zero six minutes.
+
+12
+00:00:45,041 --> 00:00:46,664
+One good run is not enough.
+
+13
+00:00:46,664 --> 00:00:52,074
+We freeze this proposal and evaluate it on twenty additional, prespecified synthetic days.
+
+14
+00:00:52,074 --> 00:00:56,583
+The plan is not retuned between days, and the report retains every outcome.
+
+15
+00:01:01,349 --> 00:01:07,575
+Completed journeys improve on all twenty days, averaging about one hundred and fifty additional journeys per day.
+
+16
+00:01:07,575 --> 00:01:11,377
+But there is a trade off: missed connections worsen on thirteen days.
+
+17
+00:01:11,377 --> 00:01:14,793
+Route Pulse makes that limitation visible alongside the gains.
+
+18
+00:01:19,449 --> 00:01:22,745
+Aggregate improvements can hide harm to individual groups.
+
+19
+00:01:22,745 --> 00:01:30,986
+The Evidence Lab breaks down service and waiting time by passenger origin, helping an operator investigate who benefits and who may be worse off.
+
+20
+00:01:34,815 --> 00:01:38,219
+Arrival predictions are checked against simulated ground truth.
+
+21
+00:01:38,219 --> 00:01:41,569
+Reports show measured errors and prediction interval coverage.
+
+22
+00:01:43,681 --> 00:01:47,781
+The next step is a campus shadow pilot using real historical data.
+
+23
+00:01:47,781 --> 00:01:51,571
+This prototype demonstrates a reproducible decision workflow.
+
+24
+00:01:51,571 --> 00:01:54,305
+Benefits in a live campus remain unverified.

@@ -1,0 +1,86 @@
+/* Records real localhost interactions. Captions are a video-only overlay, not app data. */
+const { chromium } = require('../apps/web/node_modules/playwright');
+const fs = require('node:fs');
+const path = require('node:path');
+const os = require('node:os');
+const output = path.resolve(process.env.DEMO_OUTPUT || 'submission/demo');
+if (fs.existsSync(path.join(output, 'routepulse-demo.webm'))) throw new Error('Choose a new DEMO_OUTPUT directory to preserve the existing recording.');
+fs.mkdirSync(output, {recursive:true});
+const pause = ms => new Promise(resolve => setTimeout(resolve, ms));
+const stamp = seconds => `${String(Math.floor(seconds / 3600)).padStart(2,'0')}:${String(Math.floor(seconds / 60) % 60).padStart(2,'0')}:${(seconds % 60).toFixed(3).padStart(6,'0')}`;
+(async () => {
+ const browser = await chromium.launch({args:['--window-size=1440,1100'], ...(process.env.CHROME_PATH ? {executablePath:process.env.CHROME_PATH} : {})});
+ const context = await browser.newContext({viewport:{width:1440,height:900},screen:{width:1440,height:1100},recordVideo:{dir:fs.mkdtempSync(path.join(os.tmpdir(),'routepulse-video-')),size:{width:1440,height:812}}});
+ const page = await context.newPage();
+ const errors=[]; page.on('pageerror',e=>errors.push(e.message));
+ const captions=[];
+ const began=Date.now();
+ const elapsed=()=> (Date.now()-began)/1000;
+ const until=async seconds=>pause(Math.max(0,seconds*1000-(Date.now()-began)));
+ const caption=async text=>{
+  captions.push({start:elapsed(),text});
+  await page.evaluate(text=>{
+   let banner=document.getElementById('recording-caption');
+   if(!banner){banner=document.createElement('div');banner.id='recording-caption';banner.style.cssText='position:fixed;bottom:120px;left:258px;right:24px;z-index:99999;background:#211d43f5;color:white;padding:16px 22px;border:1px solid #9383dc;border-radius:10px;font:500 20px/1.5 system-ui;box-shadow:0 5px 30px #0003;pointer-events:none';document.body.append(banner);}
+   banner.textContent=text;
+  },text);
+ };
+ const focus=async locator=>locator.evaluate(el=>window.scrollTo({top:window.scrollY+el.getBoundingClientRect().top-100,behavior:'smooth'}));
+ try {
+  await page.goto(process.env.DEMO_URL || 'http://127.0.0.1:3000/');
+  await page.getByText('Completed journeys',{exact:true}).waitFor();
+  await caption('RoutePulse: test a better campus transport plan with the fleet you already have. All campus data is synthetic.');
+  await page.getByRole('button',{name:'Play simulation',exact:true}).click();
+  await until(13);
+  await page.getByRole('button',{name:'Optimization Studio',exact:true}).click();
+  await caption('A real optimization run: shift departures within published windows and reassign existing vehicles.');
+  const resultPromise=page.waitForResponse(r=>r.url().endsWith('/api/v1/optimizations') && r.request().method()==='POST');
+  await page.getByRole('button',{name:'Run optimization',exact:true}).click();
+  const response=await resultPromise;
+  if(!response.ok()) throw new Error(`Optimization failed: ${response.status()}`);
+  const run=await response.json();
+  if(!run.candidate) throw new Error('No feasible proposal; recording must not claim a result.');
+  fs.writeFileSync(path.join(output,'recorded-optimization.json'),JSON.stringify(run,null,2));
+  await page.getByText('Feasible recommendation',{exact:true}).waitFor();
+  await focus(page.getByText('Feasible recommendation',{exact:true}));
+  await caption(`${run.changes.length} duty changes. All ten hard-constraint categories pass. The operator still decides whether to accept.`);
+  await until(31);
+  await focus(page.getByRole('heading',{name:'One scenario. A fair comparison.'}));
+  const b=run.baseline.metrics,c=run.candidate.metrics;
+  await caption(`Same passengers and traffic: ${b.served} → ${c.served} completed journeys; ${b.average_wait.toFixed(2)} → ${c.average_wait.toFixed(2)} minutes mean wait.`);
+  await until(45);
+  await page.getByRole('button',{name:'Evidence lab',exact:true}).click();
+  await page.getByRole('button',{name:'Test on 20 new days',exact:true}).waitFor();
+  await caption('Freeze this proposal. Test it on 20 prespecified synthetic days, with no retuning or selection of favorable days.');
+  const validationPromise=page.waitForResponse(r=>r.url().endsWith(`/optimizations/${run.id}/validation`) && r.request().method()==='POST');
+  await page.getByRole('button',{name:'Test on 20 new days',exact:true}).click();
+  const validationResponse=await validationPromise;
+  if(!validationResponse.ok()) throw new Error(`Validation failed: ${validationResponse.status()}`);
+  const report=await validationResponse.json();
+  fs.writeFileSync(path.join(output,'recorded-validation.json'),JSON.stringify(report,null,2));
+  await page.getByRole('heading',{name:'Does the improvement survive different days?'}).waitFor();
+  await focus(page.getByRole('heading',{name:'The original day, in human terms'}));
+  await until(61);
+  await focus(page.getByRole('heading',{name:'Does the improvement survive different days?'}));
+  await caption(`${report.service_win_days}/20 days improve completed journeys. Mean change: ${report.summary.served.mean_delta.toFixed(1)} journeys. Transfers worsen on ${report.transfer_regression_days}/20 days.`);
+  await until(79);
+  await focus(page.getByRole('heading',{name:'Who benefits — and who waits longer?'}));
+  await caption('Aggregate gains can hide harm. Inspect service and waiting time by passenger origin before making a decision.');
+  await until(94);
+  await page.getByRole('button',{name:'Analytics & reports',exact:true}).click();
+  await focus(page.getByRole('heading',{name:'Predicted vs actual arrival'}));
+  await caption('Arrival predictions are evaluated against simulated ground truth. Reports expose measured errors and interval coverage.');
+  await until(103);
+  await page.getByRole('button',{name:'Evidence lab',exact:true}).click();
+  await focus(page.getByRole('heading',{name:'From simulation to a campus pilot'}));
+  await caption('Next: one campus shadow pilot with real historical data. This prototype demonstrates the workflow; field benefits remain unverified.');
+  await until(115);
+  const end=elapsed();
+  if(errors.length) throw new Error(`Browser errors: ${errors.join('; ')}`);
+  await context.close();
+  await page.video().saveAs(path.join(output,'routepulse-demo.webm'));
+  fs.writeFileSync(path.join(output,'captions.vtt'),'WEBVTT\n\n'+captions.map((c,i)=>`${stamp(c.start)} --> ${stamp(captions[i+1]?.start || end)}\n${c.text}\n`).join('\n'));
+  fs.writeFileSync(path.join(output,'recording.json'),JSON.stringify({created_at:new Date().toISOString(),duration_seconds:end,source_url:process.env.DEMO_URL || 'http://127.0.0.1:3000/',source_run_id:run.id,validation_id:report.id,synthetic:true,audio:false,caption_method:'Visible video-only DOM overlay; no API responses mocked',browser_errors:errors,captions},null,2));
+  console.log(JSON.stringify({video:path.join(output,'routepulse-demo.webm'),duration:end,run:run.id,validation:report.id}));
+ } finally {await browser.close();}
+})().catch(e=>{console.error(e);process.exitCode=1;});

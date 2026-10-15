@@ -1,0 +1,47 @@
+name: RoutePulse verification
+on: [push, pull_request]
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:17.6-alpine
+        env:
+          POSTGRES_USER: routepulse
+          POSTGRES_PASSWORD: routepulse_ci
+          POSTGRES_DB: routepulse
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd "pg_isready -U routepulse"
+          --health-interval 5s --health-timeout 3s --health-retries 20
+    env:
+      DATABASE_URL: postgresql+psycopg://routepulse:routepulse_ci@localhost:5432/routepulse
+      PYTHONPATH: services/api
+      NEXT_TELEMETRY_DISABLED: 1
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+          cache-dependency-path: apps/web/package-lock.json
+      - run: pip install -r services/api/requirements.lock
+      - run: npm ci --prefix apps/web
+      - run: ruff check services/api scripts
+      - run: pytest -q --cov=app
+      - run: npm run typecheck --prefix apps/web && npm run lint --prefix apps/web && npm test --prefix apps/web
+      - run: npm run build --prefix apps/web
+      - run: alembic -c services/api/alembic.ini upgrade head && python scripts/seed.py
+      - run: |
+          uvicorn app.main:app --host 127.0.0.1 --port 8000 > /tmp/api.log 2>&1 &
+          npm run dev --prefix apps/web > /tmp/web.log 2>&1 &
+          for i in $(seq 1 30); do curl -fsS http://127.0.0.1:3000 >/dev/null && break || sleep 2; done
+      - run: cd apps/web && npx playwright install --with-deps chromium && npm run test:e2e
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: browser-failure-traces
+          path: apps/web/test-results

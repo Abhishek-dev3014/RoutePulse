@@ -1,0 +1,28 @@
+WEBVTT
+
+00:00:00.451 --> 00:00:13.043
+RoutePulse: test a better campus transport plan with the fleet you already have. All campus data is synthetic.
+
+00:00:13.043 --> 00:00:21.890
+A real optimization run: shift departures within published windows and reassign existing vehicles.
+
+00:00:21.890 --> 00:00:31.305
+21 duty changes. All ten hard-constraint categories pass. The operator still decides whether to accept.
+
+00:00:31.305 --> 00:00:45.041
+Same passengers and traffic: 706 → 849 completed journeys; 35.30 → 28.06 minutes mean wait.
+
+00:00:45.041 --> 00:01:01.349
+Freeze this proposal. Test it on 20 prespecified synthetic days, with no retuning or selection of favorable days.
+
+00:01:01.349 --> 00:01:19.449
+20/20 days improve completed journeys. Mean change: 149.8 journeys. Transfers worsen on 13/20 days.
+
+00:01:19.449 --> 00:01:34.815
+Aggregate gains can hide harm. Inspect service and waiting time by passenger origin before making a decision.
+
+00:01:34.815 --> 00:01:43.681
+Arrival predictions are evaluated against simulated ground truth. Reports expose measured errors and interval coverage.
+
+00:01:43.681 --> 00:01:55.001
+Next: one campus shadow pilot with real historical data. This prototype demonstrates the workflow; field benefits remain unverified.

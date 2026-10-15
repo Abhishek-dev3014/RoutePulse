@@ -1,0 +1,49 @@
+{
+  "created_at": "2026-10-14T11:21:51.983Z",
+  "duration_seconds": 115.001,
+  "source_url": "http://127.0.0.1:3000/",
+  "source_run_id": "d1b93319-0d3e-4bb4-ab7f-cb52aeafcb8a",
+  "validation_id": "4188917e-0b3f-4344-b1a2-bf1ed9237b85",
+  "synthetic": true,
+  "audio": false,
+  "caption_method": "Visible video-only DOM overlay; no API responses mocked",
+  "browser_errors": [],
+  "captions": [
+    {
+      "start": 0.451,
+      "text": "RoutePulse: test a better campus transport plan with the fleet you already have. All campus data is synthetic."
+    },
+    {
+      "start": 13.043,
+      "text": "A real optimization run: shift departures within published windows and reassign existing vehicles."
+    },
+    {
+      "start": 21.89,
+      "text": "21 duty changes. All ten hard-constraint categories pass. The operator still decides whether to accept."
+    },
+    {
+      "start": 31.305,
+      "text": "Same passengers and traffic: 706 → 849 completed journeys; 35.30 → 28.06 minutes mean wait."
+    },
+    {
+      "start": 45.041,
+      "text": "Freeze this proposal. Test it on 20 prespecified synthetic days, with no retuning or selection of favorable days."
+    },
+    {
+      "start": 61.349,
+      "text": "20/20 days improve completed journeys. Mean change: 149.8 journeys. Transfers worsen on 13/20 days."
+    },
+    {
+      "start": 79.449,
+      "text": "Aggregate gains can hide harm. Inspect service and waiting time by passenger origin before making a decision."
+    },
+    {
+      "start": 94.815,
+      "text": "Arrival predictions are evaluated against simulated ground truth. Reports expose measured errors and interval coverage."
+    },
+    {
+      "start": 103.681,
+      "text": "Next: one campus shadow pilot with real historical data. This prototype demonstrates the workflow; field benefits remain unverified."
+    }
+  ]
+}
